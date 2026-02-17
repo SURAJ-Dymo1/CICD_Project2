@@ -1,0 +1,21 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30071  #kind cluster run hoto docker container madh. tya mule 30011 ha ahe tya container cha port
+        hostPort: 30071    #ha ahe aplya host machine varial port
+        listenAddress: "0.0.0.0"  # Optional
+        protocol: tcp  
+  - role: worker
+    extraPortMappings:
+      - containerPort: 30081
+        hostPort: 30081
+        listenAddress: "0.0.0.0"
+        protocol: tcp
+  - role: worker
+    extraPortMappings:
+      - containerPort: 30091
+        hostPort: 30091
+        listenAddress: "0.0.0.0"
+        protocol: tcp
